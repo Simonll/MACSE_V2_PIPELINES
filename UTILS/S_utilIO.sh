@@ -31,8 +31,10 @@ function get_out_dir_param(){
   if [ ! -e  $dir ]; then
     mkdir "$dir"
   else
-    printf "Problem with option $1, directory $2 already  exist" >&2
-    has_problem=1
+    if ["$(ls -A $dir)"]; then
+      printf "Problem with option $1, directory $2 already  exist" >&2
+      has_problem=1
+    fi
   fi
   echo $dir
   return $has_problem
