@@ -190,7 +190,7 @@ $macse -prog translateNT2AA $GC_OPT -seq __${PREFIX}_unmask_NT.aln -out_AA __${P
 
 if(( $FILTERING > 0)); then
     printf "\n\n============== FILTER ALIGNMENTS\n"
-    THRESHOLD=10 # lower is more stringeant, S. Glemin used 5 for Triticea, 10 is the advised value
+    THRESHOLD=5 # lower is more stringeant, S. Glemin used 5 for Triticea, 10 is the advised value
     $hmmcleaner --del-char $ ./__${PREFIX}_homol_AA.aln ${THRESHOLD}
 
     printf "\n\n============== MACSE REPORT FILTERING\n"
